@@ -73,7 +73,9 @@ pytest
 
 ## 授權
 
-[MIT](LICENSE)
+程式碼採用 [MIT](LICENSE) 授權。
+
+「Raze AEO」名稱與 Logo（`web/static/logo.svg`、`logo-dark.svg`、`favicon.svg`）不在 MIT 授權範圍內，版權所有。自行架設或再散布時，請換成你自己的名稱與圖示。詳見 [NOTICE](NOTICE)。
 
 ---
 
@@ -97,3 +99,7 @@ Only public sitemaps are read; page content is never fetched.
 - **Public deployment:** `docker compose up -d --build`, then put an HTTPS reverse proxy in front of `127.0.0.1:8000`.
 
 `PUBLIC_MODE=1` blocks internal addresses and non-standard ports and applies rate, size and time limits. See the table above for every setting.
+
+### License
+
+The code is released under the [MIT License](LICENSE). The "Raze AEO" name and logo (`web/static/logo.svg`, `logo-dark.svg`, `favicon.svg`) are not covered by it; all rights reserved. Replace them with your own if you host or redistribute this tool. See [NOTICE](NOTICE).
