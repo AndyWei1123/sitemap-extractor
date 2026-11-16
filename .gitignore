@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.csv
+*.txt
+!requirements.txt
+!requirements-dev.txt
+!tests/fixtures/*.txt
+.env
+.claude/

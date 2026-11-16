@@ -1,0 +1,26 @@
+# Public deployment. Put a reverse proxy with HTTPS in front of 127.0.0.1:8000.
+services:
+  sitemap-extractor:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${HOST_PORT:-8000}:8000"
+    environment:
+      PUBLIC_MODE: "1"        # blocks internal addresses, enables rate and size limits
+      TRUST_PROXY: "1"        # read the visitor IP from X-Forwarded-For (set by your reverse proxy)
+      RATE_LIMIT_PER_HOUR: "20"
+      MAX_INPUTS: "10"
+      MAX_URLS: "200000"
+      MAX_SECONDS: "300"
+      MAX_FILE_MB: "50"
+      MAX_CONCURRENT_JOBS: "3"
+    read_only: true
+    tmpfs:
+      - /tmp:size=512m
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 768m
+    cpus: 1.0
+    pids_limit: 200
